@@ -22,5 +22,6 @@ vvp=matrix(c(
 calc.varRR(phi,K,vvp)
 # using vvp file as input
 vvp.filename="C:\\vvp_example.txt"
+
 calc.varRR(phi,K, vvp.filename, positions=c(3,5))
 
