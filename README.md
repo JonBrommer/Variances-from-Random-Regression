@@ -22,6 +22,7 @@ calc.varRR<-dget(“C:\\MyScripts\\calc.varRR.R”)
 
 # example 1 
 ```
+calc.varRR<-dget(“calc.varRR.R”)
 K=matrix(c(5,1,1,1),2,2)
 phi=seq(-1,1,by=(1/3))
 vvp=matrix(c(
@@ -34,6 +35,7 @@ calc.varRR(phi,K,vvp)
 # example 2: as above, but using a vvp file as input
 ```
 # (not run)
+calc.varRR<-dget(“calc.varRR.R”)
 vvp.filename="C:\\vvp_example.txt"
 K=matrix(c(5,1,1,1),2,2)
 phi=seq(-1,1,by=(1/3))
