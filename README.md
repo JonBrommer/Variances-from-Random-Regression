@@ -1,11 +1,9 @@
 # Variances-from-Random-Regression
-calculating covariate specific variances and their SE on the basis of random regression estimates
+Calculating covariate specific variances and their SE on the basis of random regression estimates
+Approach described by Fischer et al. 2004, Genet. Sel. Evol. 36:363–369
+This function plots variances and approximate 95% CI based on double the SE. The function currently works only with RR of first-order polynomials
 
-function plots variances and approximate 95% CI based on double the SE
-
-This currently works only with RR of first-order polynomials
-
-input is either the vvp matrix itself or an AsReml file and a vector indicating the position of the relevant vvp elements
+Input is either the vvp matrix itself (Hessian) or an AsReml file and a vector indicating the position of the relevant vvp elements
 
 # example 1 
 ```
