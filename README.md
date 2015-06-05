@@ -1,9 +1,17 @@
 # Variances-from-Random-Regression
-Calculating covariate specific variances and their SE on the basis of random regression estimates
+
+# Description
+Calculates covariate specific variances and their SE on the basis of random regression estimates
 Approach described by Fischer et al. 2004, Genet. Sel. Evol. 36:363–369
 This function plots variances and approximate 95% CI based on double the SE. The function currently works only with RR of first-order polynomials
 
-Input is 
+# Usage
+```
+calc.varRR(K,phi,vpp)
+calc.varRR(K,phi,vpp,positions)
+```
+
+# Arguments 
 
 K - the covariance matrix of random effect for elevation (intercept) and slope. These random effects are here assumed to be polynomials (a + b*x). 
 
@@ -38,7 +46,7 @@ calc.varRR(phi,K,vvp)
 
 # example 2: as above, but using a vvp file as input
 ```
-# (not run)
+## Not run:
 calc.varRR<-dget(“calc.varRR.R”)
 vvp.filename="C:\\vvp_example.txt"
 K=matrix(c(5,1,1,1),2,2)
