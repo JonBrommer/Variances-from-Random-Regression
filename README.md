@@ -8,11 +8,11 @@ Input is either the vvp matrix itself (Hessian) or an AsReml file and a vector i
 Copy the script directly into your own script.
 Alternatively, save it as a file to your working directory or other directory (in which case the path tto that directory needs to be included). 
 ```
-calc.varRR<-dget(“cal.varRR.R”)
+calc.varRR<-dget(“calc.varRR.R”)
 ```
 or, when you have it not in your working directory e.g.
 ```
-calc.varRR<-dget(“C:\MyScripts\cal.varRR.R”)
+calc.varRR<-dget(“C:\\MyScripts\\calc.varRR.R”)
 ```
 
 # example 1 
