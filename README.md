@@ -4,6 +4,16 @@ Approach described by Fischer et al. 2004, Genet. Sel. Evol. 36:363–369
 This function plots variances and approximate 95% CI based on double the SE. The function currently works only with RR of first-order polynomials
 
 Input is either the vvp matrix itself (Hessian) or an AsReml file and a vector indicating the position of the relevant vvp elements
+# Use
+Copy the script directly into your own script.
+Alternatively, save it as a file to your working directory or other directory (in which case the path tto that directory needs to be included). 
+```
+calc.varRR<-dget(“cal.varRR.R”)
+```
+or, when you have it not in your working directory e.g.
+```
+calc.varRR<-dget(“C:\MyScripts\cal.varRR.R”)
+```
 
 # example 1 
 ```
