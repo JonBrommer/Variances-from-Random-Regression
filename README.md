@@ -4,6 +4,9 @@ Approach described by Fischer et al. 2004, Genet. Sel. Evol. 36:363–369
 This function plots variances and approximate 95% CI based on double the SE. The function currently works only with RR of first-order polynomials
 
 Input is either the vvp matrix itself (Hessian) or an AsReml file and a vector indicating the position of the relevant vvp elements
+K - the covariance matrix of random effect for elevation (intercept) and slope. These random effects are here assumed to be polynomials (a + b*x)
+phi - the covariate which *must* be scaled in the same way as in the analysis. Note that your software may internally scale this. AsReml will have the minimal value of the covariate as -1 and the mean of the set of observed covariate values as 0. Thus, if your covariate has values 0, 1, 2; AsReml will scale these to -1, 0, 1. Again, other softare will do this differently. R, for example, does not change the scaling.
+
 # Use
 Copy the script directly into your own script.
 Alternatively, save it as a file to your working directory or other directory (in which case the path tto that directory needs to be included). 
