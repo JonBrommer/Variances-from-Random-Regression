@@ -7,7 +7,6 @@ Input is either the vvp matrix itself (Hessian) or an AsReml file and a vector i
 
 # example 1 
 ```
-rm(list=ls())
 K=matrix(c(5,1,1,1),2,2)
 phi=seq(-1,1,by=(1/3))
 vvp=matrix(c(
