@@ -17,7 +17,7 @@ vvp=matrix(c(
 calc.varRR(phi,K,vvp)
 ```
 
-# example 1: using vvp file as input
+# example 2: as above, but using a vvp file as input
 ```
 # (not run)
 vvp.filename="C:\\vvp_example.txt"
