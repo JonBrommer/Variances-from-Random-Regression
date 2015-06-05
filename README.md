@@ -5,7 +5,7 @@ This function plots variances and approximate 95% CI based on double the SE. The
 
 Input is either the vvp matrix itself (Hessian) or an AsReml file and a vector indicating the position of the relevant vvp elements
 
-K - the covariance matrix of random effect for elevation (intercept) and slope. These random effects are here assumed to be polynomials (a + b*x)
+K - the covariance matrix of random effect for elevation (intercept) and slope. These random effects are here assumed to be polynomials (a + b*x). The vvp matrix denotes the variances and covariances associated with the estimated Random Regression covariance matrix. 
 
 phi - the covariate which *must* be scaled in the same way as in the analysis. Note that your software may internally scale this. AsReml will have the minimal value of the covariate as -1 and the mean of the set of observed covariate values as 0. Thus, if your covariate has values 0, 1, 2 (each of which may occur different times in your data); AsReml will scale these to -1, 0, 1. Again, other softare will do this differently. R, for example, does not change the scaling.
 
