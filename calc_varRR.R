@@ -2,7 +2,7 @@ calc.varRR<-function(vvp.name, phi,K, positions=c(NA,NA)) {
 	#function to calculate variances, the se in the variance and approximate 95% CI around the variance at
 	#each value of a specified covariate, derived from random regression (RR) estimates
 	#Fischer et al. 2004, Genet. Sel. Evol. 36:363–369
-	# CURRENTLY ONLY RUNS FOR LINEAR (FORST-ORDER) POLYNOMIALS
+	# CURRENTLY ONLY RUNS FOR LINEAR (FIRST-ORDER) POLYNOMIALS
 	#function input:
 	#vvp.name - can be
 	#  1. name of asreml ".vvp" file with covariance matrix for estimates of elevation and slope (Average Information on variance component scale)
