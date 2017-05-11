@@ -28,9 +28,9 @@ positions - AsReml will generate a ".vvp" file. AsReml counts all estimated cova
 
 # Use
 Copy the script directly into your own script.
-Alternatively, save it as a file to your working directory or other directory (in which case the path to that directory needs to be included). 
+Alternatively, save it as a file to your working directory or other directory (in which case the path to that directory needs to be included). In the example below assumed to be saved as a file called "calc_varRR.R"
 ```
-calc.varRR<-dget(“calc.varRR.R”)
+calc.varRR<-dget(“calc_varRR.R”)
 ```
 
 # example 1 (information specified by user - produces increasing variance as function of covariate) 
