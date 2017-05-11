@@ -26,7 +26,7 @@ calc.varRR<-function(vvp.name, phi,K, positions=c(NA,NA)) {
 	} #is.matrix
 	if (class(vvp.name)=="asreml") { #asreml used
 		if (length(phi)>1) { 
-			print("for asreml results, phi should be a scalar giving the number of knot points")
+			print("for asreml results, phi should be a scalar giving the number of nodes")
 			break()
 		}
 		phi=seq(-1,1,length.out = phi)
