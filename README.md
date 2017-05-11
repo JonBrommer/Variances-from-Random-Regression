@@ -55,12 +55,44 @@ calc.varRR(vvp.filename, phi, K, positions=c(3,5))
 
 # example 3: asreml-R
 ```
-## Not run:
+require(mvtnorm)
 require(asreml)
-#assume a data.frame called "df" with repeated measures of Y taken on SUBJECT at various values of X
-m.RR<-asreml(fixed= ~ 1 + X, random=~ us(pol(X,1)):SUBJECT, rcov=~idv(units), data=df)
-calc.varRR(m.RR,30)
-#how did asreml scale? 
-scaling<-min(unique(df$X))-mean(unique(df$X))
-#scaling times the "cov.value" produced by calc.varRR will provide you the covariate on the data scale
+sigma=matrix(0,3,3)
+#define the expected values of subjects to have variances of 1, 2 and 3 in the three environments
+diag(sigma)<-c(1,2,3) #variance in environment 1, 2 and 3; asreml codes this as -1, 0, and +1
+# subject-specific values are highly correlated across environments (r = 0.95) - linear reaction norms
+# lower correlations will break down the approximation by linear reaction norms (requiring higher-order RR)
+sigma[1,2]<-sigma[2,1]<-0.95*sqrt(sigma[1,1]*sigma[2,2])
+sigma[2,3]<-sigma[3,2]<-0.95*sqrt(sigma[2,2]*sigma[3,3])
+sigma[1,3]<-sigma[3,1]<-0.95*sqrt(sigma[1,1]*sigma[3,3])
+# in each environment, the same residual variance acts (homogeneous variances)
+res.sigma=matrix(0,3,3)
+diag(res.sigma)<-3
+#generate values
+ninds=1000
+dat<-data.frame(SUBJECT=1:ninds,rmvnorm(ninds,sigma=sigma)+rmvnorm(ninds,sigma=res.sigma))
+#make the dataframe 
+dat<-reshape(dat,varying=list(2:4),idvar="SUBJECT",direction="long")
+names(dat)[2:3]<-c("X","Y")
+head(dat)
+dat$SUBJECT=as.factor(dat$SUBJECT)
+#run analysis in asreml
+mRR<-asreml(Y~ 1 + as.factor(X)
+                 , random=~ us(pol(X,1)):SUBJECT
+                 , rcov=~idv(units)
+		     , data=dat)
+# check out variance component: residual variance should cover the  simulated variance (diagonal in res.sigma) 
+# and the variance in intercept should cover the second value in diagonal of sigma
+summary(mRR)$varcomp
+dat$X2=dat$X*2
+mRR.X2<-asreml(Y~ 1 + as.factor(X2)
+                 , random=~ us(pol(X2,1)):SUBJECT
+                 , rcov=~idv(units)
+		     , data=dat)
+# demonstration that asreml scales internally: same estimates produced, independently of how X is scaled in the data 
+summary(mRR)$varcomp
+summary(mRR.X2)$varcomp
+# calculate and plot the variances as estimated by Random Regression
+# check out variance component: variances at -1, 0, 1 should cover the values in diagonal of sigma
+calc.varRR(mRR,11)
 ```
